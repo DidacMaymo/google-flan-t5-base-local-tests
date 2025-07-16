@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+.env/
+.venv/
+env/
+
+# FastAPI static/uploads
+uploads/
+*.pdf
+*.docx
+*.txt
+
+# Modelos LLM pesados
+models/
+*.gguf
+*.bin
+*.pth
+*.pt
+
+# VSCode / IDE config
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs y temporales
+*.log
+*.tmp
+*.swp
+
+# LangChain / Chroma DBs
+chroma/
+db/
+index/
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Jupyter Notebooks (checkpoints)
+.ipynb_checkpoints/
+
+# Docker
+*.pid
+
+# Node/npm si usas algún frontend
+node_modules/
+package-lock.json
+
+#cache
+cache/
