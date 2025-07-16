@@ -27,11 +27,8 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 model_id = "google/flan-t5-base"
 #Cuando ejecutes sin internet, cargará modelos desde caché local.
 
-# Carga con conexión a Internet (comentado)
-# tokenizer = AutoTokenizer.from_pretrained(model_id)
-# model = AutoModelForSeq2SeqLM.from_pretrained(model_id)
 
-# Carga local sin conexión a Internet
+# Carga local sin conexión a Internet (else, remove 'local_files_only')
 tokenizer = AutoTokenizer.from_pretrained(model_id, local_files_only=True)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_id, local_files_only=True)
 
@@ -39,10 +36,7 @@ pipe = pipeline("text2text-generation", model=model, tokenizer=tokenizer)
 
 llm = HuggingFacePipeline(pipeline=pipe)
 
-# Embeddings con conexión a Internet (comentado)
-# embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-
-# Embeddings local sin conexión
+# Embeddings local sin conexión, else remove 'model_kwargs'
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"local_files_only": True})
 
 @app.post("/upload-pdf/")
